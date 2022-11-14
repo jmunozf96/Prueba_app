@@ -2,6 +2,7 @@
 using Domain.Exceptions;
 using Domain.Interfaces.Repositories;
 using Infrastructure.Data.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
@@ -35,7 +36,10 @@ namespace Infrastructure.Repositories
 
         public ICollection<Usuario> GetAll()
         {
-            return context.Usuarios.ToList();
+            return context.Usuarios
+                .Include(u => u.Cargo)
+                .Include(u => u.Departamento)
+                .ToList();
         }
 
         public void Save()

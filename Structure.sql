@@ -41,3 +41,4 @@ INSERT INTO Cargo(Codigo, Nombre) VALUES ('ANALISTA', 'Contable')
 
 SELECT * FROM Departamento
 SELECT * FROM Cargo
+SELECT * FROM Usuario
