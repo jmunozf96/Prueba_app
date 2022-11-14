@@ -9,6 +9,7 @@ namespace IoC
         public static void AddRepositoryDependency(this IServiceCollection services) {
             services.AddScoped<IDepartamentoRepository, DepartamentoRepository>();
             services.AddScoped<ICargoRepository, CargoRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         }
     }
 }

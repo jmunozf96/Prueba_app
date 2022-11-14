@@ -24,9 +24,10 @@ namespace Services
             _repository.Create(usuario_map);
         }
 
-        public void Delete(int usuario)
+        public void Delete(int usuarioId)
         {
-            _repository.Delete(usuario);
+            var _usuario = _repository.Get(usuarioId);
+            _repository.Delete(_usuario);
         }
 
         public ICollection<UsuarioDTO> GetAll()
@@ -35,10 +36,12 @@ namespace Services
             return _mapper.Map<ICollection<UsuarioDTO>>(usuarios);
         }
 
-        public void Update(UpdateUsuarioDTO usuario)
+        public UpdateUsuarioDTO Update(int usuarioId, UpdateUsuarioDTO usuario)
         {
-            var usuario_map = _mapper.Map<Usuario>(usuario);
+            var _usuario = _repository.Get(usuarioId);
+            var usuario_map = _mapper.Map(usuario, _usuario);
             _repository.Update(usuario_map);
+            return _mapper.Map<UpdateUsuarioDTO>(usuario_map);
         }
     }
 }

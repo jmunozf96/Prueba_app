@@ -5,8 +5,8 @@ namespace Domain.Interfaces.Services
     public interface IUsuarioService
     {
         void Create(CreateUsuarioDTO usuario);
-        void Update(UpdateUsuarioDTO usuario);
-        void Delete(int usuario);
+        UpdateUsuarioDTO Update(int usuarioId, UpdateUsuarioDTO usuario);
+        void Delete(int usuarioId);
         ICollection<UsuarioDTO> GetAll();
     }
 }

@@ -17,6 +17,7 @@ namespace Infrastructure.Data.Contexts
 
         public virtual DbSet<Cargo> Cargos { get; set; }
         public virtual DbSet<Departamento> Departamentos { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
