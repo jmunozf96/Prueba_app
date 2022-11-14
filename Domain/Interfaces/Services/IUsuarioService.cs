@@ -6,7 +6,7 @@ namespace Domain.Interfaces.Services
     {
         void Create(CreateUsuarioDTO usuario);
         void Update(UpdateUsuarioDTO usuario);
-        void Delete(UpdateUsuarioDTO usuario);
+        void Delete(int usuario);
         ICollection<UsuarioDTO> GetAll();
     }
 }

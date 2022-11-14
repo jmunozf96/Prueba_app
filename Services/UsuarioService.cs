@@ -1,33 +1,44 @@
-﻿using Domain.Dtos.Usuario;
+﻿using AutoMapper;
+using Domain.Dtos.Usuario;
+using Domain.Entities;
+using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services
 {
     public class UsuarioService : IUsuarioService
     {
-        public void Create(CreateUsuarioDTO usuario)
+        private readonly IUsuarioRepository _repository;
+        private readonly IMapper _mapper;
+
+        public UsuarioService(IUsuarioRepository repository, IMapper mapper) 
         {
-            throw new NotImplementedException();
+            _repository = repository;
+            _mapper = mapper;
+
         }
 
-        public void Delete(UpdateUsuarioDTO usuario)
+        public void Create(CreateUsuarioDTO usuario)
         {
-            throw new NotImplementedException();
+            var usuario_map = _mapper.Map<Usuario>(usuario);
+            _repository.Create(usuario_map);
+        }
+
+        public void Delete(int usuario)
+        {
+            _repository.Delete(usuario);
         }
 
         public ICollection<UsuarioDTO> GetAll()
         {
-            throw new NotImplementedException();
+            var usuarios = _repository.GetAll();
+            return _mapper.Map<ICollection<UsuarioDTO>>(usuarios);
         }
 
         public void Update(UpdateUsuarioDTO usuario)
         {
-            throw new NotImplementedException();
+            var usuario_map = _mapper.Map<Usuario>(usuario);
+            _repository.Update(usuario_map);
         }
     }
 }

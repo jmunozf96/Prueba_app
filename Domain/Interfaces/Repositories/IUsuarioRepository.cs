@@ -6,7 +6,8 @@ namespace Domain.Interfaces.Repositories
     {
         void Create(Usuario usuario);
         void Update(Usuario usuario);
-        void Delete(Usuario usuario);
+        void Delete(int usuario);
+        Usuario Get(int id);
         ICollection<Usuario> GetAll();
         void Save();
     }
