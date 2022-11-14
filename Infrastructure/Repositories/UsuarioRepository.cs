@@ -1,5 +1,4 @@
 ﻿using Domain.Entities;
-using Domain.Exceptions;
 using Domain.Interfaces.Repositories;
 using Infrastructure.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -27,11 +26,9 @@ namespace Infrastructure.Repositories
             Save();
         }
 
-        public Usuario Get(int id)
+        public Usuario? Get(int id)
         {
-            var usuario = context.Usuarios.Find(id);
-            if (usuario == null) throw new NotFoundException();
-            return usuario;
+            return context.Usuarios.Find(id);
         }
 
         public ICollection<Usuario> GetAll()

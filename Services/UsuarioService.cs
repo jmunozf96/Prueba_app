@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Dtos.Usuario;
 using Domain.Entities;
+using Domain.Exceptions;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 
@@ -27,6 +28,7 @@ namespace Services
         public void Delete(int usuarioId)
         {
             var _usuario = _repository.Get(usuarioId);
+            if (_usuario == null) throw new NotFoundException();
             _repository.Delete(_usuario);
         }
 
@@ -39,6 +41,7 @@ namespace Services
         public UpdateUsuarioDTO Update(int usuarioId, UpdateUsuarioDTO usuario)
         {
             var _usuario = _repository.Get(usuarioId);
+            if (_usuario == null) throw new NotFoundException();
             var usuario_map = _mapper.Map(usuario, _usuario);
             _repository.Update(usuario_map);
             return _mapper.Map<UpdateUsuarioDTO>(usuario_map);
