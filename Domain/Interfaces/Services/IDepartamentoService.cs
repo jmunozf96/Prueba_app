@@ -1,6 +1,6 @@
 ﻿using Domain.Dtos;
 
-namespace Domain.Interfaces
+namespace Domain.Interfaces.Services
 {
     public interface IDepartamentoService
     {

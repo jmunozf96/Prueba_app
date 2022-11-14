@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Dtos;
-using Domain.Interfaces;
+using Domain.Interfaces.Services;
 using Domain.Interfaces.Repositories;
 
 namespace Services
