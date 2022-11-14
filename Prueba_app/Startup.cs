@@ -40,6 +40,7 @@ namespace Prueba_app
             {
                 mc.AddProfile(new DepartamentoProfile());
                 mc.AddProfile(new CargoProfile());
+                mc.AddProfile(new UsuarioProfile());
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
